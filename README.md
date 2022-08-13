@@ -1,6 +1,6 @@
 ## Deer, Frogs, or Trucks?
 
-Using a Convolutional Neural Net (CNN), I determine whether the pictures are deer, frogs, or trucks. I design a Neural Net that includes three convolutional layers (they pick up on the structure in the picture) and feed the output into dense layers. The classification accuracy is just over 90%. Additionally, I apply Grad CAM to visualize which image structure led to the classification decision:
+Using a Convolutional Neural Net (CNN), I determine whether the pictures are deer, frogs, or trucks. I design a Neural Net that includes three convolutional layers (they pick up on the structure in the picture) and feed the output into dense layers. The classification accuracy is just over 90%. Additionally, I apply Grad CAM to visualize which image structure led to the classification decision. Here is an example using a cat and a dog:
 
 ![ChartChat1-3](https://miro.medium.com/max/1186/0*D4FATkIeWp61o9zo.jpg)
 
@@ -9,8 +9,6 @@ Next, I use Monte Carlo (MC) Dropout to construct confidence intervals around my
 ![ChartChat1-3](https://docs.aws.amazon.com/prescriptive-guidance/latest/ml-quantifying-uncertainty/images/mc-dropout.png)
 
 These are the results for my model, where Cat. 1 - 3 correspond to Frogs, Deer, and Trucks respectively. The confidence intervals are reasonable, and especially slim for Cat. 3 (→ Trucks) which means the CNN does an outstanding job at classifying trucks. This makes sense seeing that Trucks are not animals and look considerably less alike than Deer and Frogs (who at least share rudimentary facial features). 
-
-<img src="images/MCDropoutCI.png?raw=true"/>
 
 Lastly, I apply a second technique to quantify uncertainty: A variational neural network (VNN). A VNN introduces a hidden layer "Z" which adds uncertainty to the weights assigned during _regular_ backpropagation. The results indicate similar performance as the MC Dropout. 
 
